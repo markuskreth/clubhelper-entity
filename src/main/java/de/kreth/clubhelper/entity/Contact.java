@@ -17,23 +17,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "contact")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Contact extends BaseEntity implements Serializable, PersonRelated {
+
     private static final long serialVersionUID = -7631864028095077913L;
-
-    public enum Type {
-	PHONE("Telefon"),
-	MOBILE("Mobile"),
-	EMAIL("Email");
-
-	private final String name;
-
-	private Type(String name) {
-	    this.name = name;
-	}
-
-	public String getName() {
-	    return name;
-	}
-    }
 
     private String type;
     private String value;
@@ -78,8 +63,9 @@ public class Contact extends BaseEntity implements Serializable, PersonRelated {
 
     @Override
     public boolean equals(Object obj) {
-	if (this == obj)
+	if (this == obj) {
 	    return true;
+	}
 	return super.equals(obj);
     }
 

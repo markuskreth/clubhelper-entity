@@ -18,49 +18,49 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Attendance extends BaseEntity implements Serializable, PersonRelated {
 
-    private static final long serialVersionUID = 2385033161272078335L;
+	private static final long serialVersionUID = 2385033161272078335L;
 
-    @Column(name = "on_date")
-    private LocalDate onDate;
+	@Column(name = "on_date")
+	private LocalDate onDate;
 
-    @ManyToOne
-    private Person person;
+	@ManyToOne
+	private Person person;
 
-    public LocalDate getOnDate() {
-	return this.onDate;
-    }
+	public LocalDate getOnDate() {
+		return this.onDate;
+	}
 
-    @Override
-    public Person getPerson() {
-	return person;
-    }
+	@Override
+	public Person getPerson() {
+		return person;
+	}
 
-    @Override
-    public void setPerson(Person person) {
-	this.person = person;
-    }
+	@Override
+	public void setPerson(Person person) {
+		this.person = person;
+	}
 
-    public void setOnDate(LocalDate onDate) {
-	this.onDate = onDate;
-    }
+	public void setOnDate(LocalDate onDate) {
+		this.onDate = onDate;
+	}
 
-    @Override
-    public int hashCode() {
-	final int prime = 103;
-	int result = super.hashCode();
-	result = prime * result;
-	return result;
-    }
+	@Override
+	public int hashCode() {
+		final int prime = 103;
+		int result = super.hashCode();
+		result = prime * result;
+		return result;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-	if (this == obj)
-	    return true;
-	return super.equals(obj);
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		return super.equals(obj);
+	}
 
-    @Override
-    public String toString() {
-	return "Attendance [person=" + person + ", onDate=" + onDate + "]";
-    }
+	@Override
+	public String toString() {
+		return "Attendance [person=" + person + ", onDate=" + onDate + "]";
+	}
 }
