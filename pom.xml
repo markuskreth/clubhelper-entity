@@ -19,4 +19,10 @@
 			<artifactId>clubhelper-data</artifactId>
 		</dependency>
 	</dependencies>
+
+	<scm>
+		<url>scm:git:https://github.com/markuskreth/clubhelper-entity.git</url>
+		<developerConnection>scm:git:https://github.com/markuskreth/clubhelper-entity.git</developerConnection>
+		<connection>scm:git:https://github.com/markuskreth/clubhelper-entity.git</connection>
+	</scm>
 </project>
