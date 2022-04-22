@@ -1,19 +1,12 @@
 package de.kreth.clubhelper.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "notes")
-public class PersonNote implements PersonRelated {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class PersonNote extends BaseEntity implements PersonRelated {
 
     @ManyToOne
     private Person person;
@@ -23,14 +16,6 @@ public class PersonNote implements PersonRelated {
     private String notetext = "";
 
     public PersonNote() {
-    }
-
-    public int getId() {
-	return id;
-    }
-
-    public void setId(int id) {
-	this.id = id;
     }
 
     @Override
@@ -61,57 +46,7 @@ public class PersonNote implements PersonRelated {
 
     @Override
     public String toString() {
-	return "PersonNote [id=" + id + ", person=" + person + ", notekey=" + notekey + "]";
-    }
-
-    @Override
-    public int hashCode() {
-	final int prime = 31;
-	int result = 1;
-	result = prime * result + id;
-	result = prime * result + ((notekey == null) ? 0 : notekey.hashCode());
-	result = prime * result + ((notetext == null) ? 0 : notetext.hashCode());
-	result = prime * result + ((person == null) ? 0 : person.hashCode());
-	return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-	if (this == obj) {
-	    return true;
-	}
-	if (obj == null) {
-	    return false;
-	}
-	if (getClass() != obj.getClass()) {
-	    return false;
-	}
-	PersonNote other = (PersonNote) obj;
-	if (id != other.id) {
-	    return false;
-	}
-	if (notekey == null) {
-	    if (other.notekey != null) {
-		return false;
-	    }
-	} else if (!notekey.equals(other.notekey)) {
-	    return false;
-	}
-	if (notetext == null) {
-	    if (other.notetext != null) {
-		return false;
-	    }
-	} else if (!notetext.equals(other.notetext)) {
-	    return false;
-	}
-	if (person == null) {
-	    if (other.person != null) {
-		return false;
-	    }
-	} else if (!person.equals(other.person)) {
-	    return false;
-	}
-	return true;
+	return "PersonNote [id=" + getId() + ", person=" + person + ", notekey=" + notekey + "]";
     }
 
 }
